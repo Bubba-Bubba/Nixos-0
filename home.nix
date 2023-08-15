@@ -27,8 +27,8 @@ shellAliases = {
       pd = "cd ~/Programming/Python";      
 
 
-      }
-
+      };
+};
 
 
   home.stateVersion = "23.05";

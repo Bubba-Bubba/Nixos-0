@@ -8,6 +8,8 @@
   home.packages = with pkgs; [
   tree
   mailspring
+  nodejs_20
+  go
   hugo
   lsof
   which

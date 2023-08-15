@@ -13,6 +13,16 @@
   which
   ];
 
+
+programs.bash = {
+    enable = true;
+    enableCompletion = true;
+    # TODO add your cusotm bashrc here
+    bashrcExtra = ''
+      export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
+    '';
+
+
 shellAliases = {
       cf = "cd /etc/nixos && sudo hx configuration.nix";
       fl = "cd /etc/nixos && sudo hx flake.nix";
@@ -25,11 +35,11 @@ shellAliases = {
       xx = "reboot";
       s = "sudo -s";
       pd = "cd ~/Programming/Python";      
-
+      lq = "ls -ha";
 
       };
 
-
+};
 
   home.stateVersion = "23.05";
 

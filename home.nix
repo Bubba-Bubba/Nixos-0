@@ -27,12 +27,13 @@ programs.bash = {
 
 
 shellAliases = {
+      post= "cd ~/Websites/Sites/nixs.info/content/english/posts";
       nixs = "cd ~/Websites/Sites/nixs.info && npm run dev";
       nix = "cd ~/Websites/Sites/nixs.info";
       cf = "cd /etc/nixos && sudo hx configuration.nix";
       fl = "cd /etc/nixos && sudo hx flake.nix";
       hm = "cd /etc/nixos && sudo hx home.nix";
-      rb = "cd /etc/nixos && sudo sudo nixos-rebuild --flake .#My_Nix switch";
+      rb = "cd /etc/nixos && sudo nixos-rebuild --flake .#My_Nix switch";
       c = "clear";
       g0 = "sudo git init";
       g1 = "sudo git add .";

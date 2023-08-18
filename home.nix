@@ -7,8 +7,8 @@
 
   home.packages = with pkgs; [
   tree
-  gnome.vinagre
   tigervnc
+  xorg.xinit
   mailspring
   nodejs_20
   go

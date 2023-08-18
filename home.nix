@@ -7,6 +7,7 @@
 
   home.packages = with pkgs; [
   tree
+  remmina
   mailspring
   nodejs_20
   go

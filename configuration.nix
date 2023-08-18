@@ -86,8 +86,10 @@ nix.settings.trusted-users = [ "marcus" ];
   };
   
   services.xserver.desktopManager.gnome.enable = true;
-  
-  # Configure console keymap
+
+services.x2goserver.enable = true;  
+
+    # Configure console keymap
   console.keyMap = "fr";
 
   # Enable CUPS to print documents.

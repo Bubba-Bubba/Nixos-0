@@ -7,8 +7,6 @@
 
   home.packages = with pkgs; [
   tree
-  tigervnc
-  xorg.xinit
   mailspring
   nodejs_20
   go

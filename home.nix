@@ -28,8 +28,8 @@ programs.bash = {
 
 shellAliases = {
       post= "cd ~/Websites/Sites/nixs.info/content/english/posts";
-      nixs = "cd ~/Websites/Sites/nixs.info && npm run dev";
-      nix = "cd ~/Websites/Sites/nixs.info";
+      webs = "cd ~/Websites/Sites/nixs.info && npm run dev";
+      webd = "cd ~/Websites/Sites/nixs.info";
       cf = "cd /etc/nixos && sudo hx configuration.nix";
       fl = "cd /etc/nixos && sudo hx flake.nix";
       hm = "cd /etc/nixos && sudo hx home.nix";
@@ -43,6 +43,7 @@ shellAliases = {
       pd = "cd ~/Programming/Python";      
       lq = "ls -ha";
       test = "sudo nixos-rebuild test --flake .#My_Nix";      
+      check = "sudo nix flake check";
 
       
       };

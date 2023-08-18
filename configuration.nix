@@ -27,9 +27,17 @@ nix.settings.trusted-users = [ "marcus" ];
   boot.initrd.luks.devices."luks-57893079-dd36-40aa-a1b5-2a69e4076723".device = "/dev/disk/by-uuid/57893079-dd36-40aa-a1b5-2a69e4076723";
   boot.initrd.luks.devices."luks-57893079-dd36-40aa-a1b5-2a69e4076723".keyFile = "/crypto_keyfile.bin";
 
+# Configure GDM (GNOME Display Manager)
+  services.gdm = {
+    enable = true;
+    automaticLogin.enable = true;          # Enable automatic login
+    automaticLogin.username = "marcus";  # Replace 'youruser' with your actual username
+  };
+}
+
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
+#  systemd.services."getty@tty1".enable = false;
+ # systemd.services."autovt@tty1".enable = false;
   
     
         networking.hostName = "nixos"; # Define your hostname.

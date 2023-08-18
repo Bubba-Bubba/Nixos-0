@@ -33,7 +33,7 @@ shellAliases = {
       cf = "cd /etc/nixos && sudo hx configuration.nix";
       fl = "cd /etc/nixos && sudo hx flake.nix";
       hm = "cd /etc/nixos && sudo hx home.nix";
-      rb = "cd /etc/nixos && sudo nixos-rebuild --flake .#My_Nix switch";
+      rb = "sudo nixos-rebuild --flake .#My_Nix switch";
       c = "clear";
       g0 = "sudo git init";
       g1 = "sudo git add .";
@@ -42,7 +42,7 @@ shellAliases = {
       s = "sudo -s";
       pd = "cd ~/Programming/Python";      
       lq = "ls -ha";
-      
+      test = "sudo nixos-rebuild test --flake .#My_Nix";      
 
       
       };

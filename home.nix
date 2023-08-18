@@ -7,7 +7,8 @@
 
   home.packages = with pkgs; [
   tree
-  remmina
+  gnome.vinagre
+  tigervnc
   mailspring
   nodejs_20
   go

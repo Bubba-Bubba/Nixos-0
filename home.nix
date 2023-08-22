@@ -7,6 +7,18 @@
 
   home.packages = with pkgs; [
   tree
+  nnn
+  exa
+  ripgrep
+  neofetch
+  fzf
+  dnsutils
+  gawk
+  nix-output-monitor
+  glow
+  lsof
+
+  
   mailspring
   nodejs_20
   go
@@ -24,6 +36,17 @@ programs.bash = {
     bashrcExtra = ''
       export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
     '';
+
+# Git config using Home Manager modules
+#  programs.git = {
+#    enable = true;
+#    userName = "BriefNCounter";
+#    userEmail = "marcusdurston@yandex.com";
+#    aliases = {
+#      st = "status";
+#    };
+#  };
+
 
 
 shellAliases = {
@@ -44,7 +67,7 @@ shellAliases = {
       lq = "ls -ha";
       test = "sudo nixos-rebuild test --flake .#My_Nix";      
       check = "sudo nix flake check";
-
+      nx = "cd /etc/nixos";
       
       };
 

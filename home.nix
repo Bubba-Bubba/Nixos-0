@@ -68,7 +68,10 @@ shellAliases = {
       test = "sudo nixos-rebuild test --flake .#My_Nix";      
       check = "sudo nix flake check";
       nx = "cd /etc/nixos";
-      
+      man = "man home-configuration.nix";
+      maj = "nix flake update && rb";
+
+            
       };
 
 };

@@ -9,10 +9,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+ nixvim = {
+    url = "github:nix-community/nixvim";
+    # If you are not running an unstable channel of nixpkgs, select the corresponding branch of nixvim.
+    # url = "github:nix-community/nixvim/nixos-23.05";
+
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+
 helix.url = "github:helix-editor/helix/23.05"; 
   };
 
-outputs = { self, nixpkgs, home-manager, ... }@inputs : {
+outputs = { self, nixpkgs, home-manager, nixvim, ... }@inputs : {
     nixosConfigurations = {
       My_Nix = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -20,7 +28,8 @@ outputs = { self, nixpkgs, home-manager, ... }@inputs : {
 
          modules = [
           ./configuration.nix
-
+          nixvim.homeManagerModules.nixvim
+          
           # make home-manager as a module of nixos
           # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
           home-manager.nixosModules.home-manager

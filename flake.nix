@@ -9,18 +9,20 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-# nixvim = {
- #   url = "github:nix-community/nixvim";
+nixvim = {
+    url = "github:nix-community/nixvim";
   #  # If you are not running an unstable channel of nixpkgs, select the corresponding branch of nixvim.
     # url = "github:nix-community/nixvim/nixos-23.05";
-#
- #   inputs.nixpkgs.follows = "nixpkgs";
- # };
+
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
 
 helix.url = "github:helix-editor/helix/23.05"; 
   };
 
 outputs = { self, nixpkgs, home-manager, ... }@inputs : {
+    inputs.nixvim.homeManagerModules.nixvim
+    
     nixosConfigurations = {
       My_Nix = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";

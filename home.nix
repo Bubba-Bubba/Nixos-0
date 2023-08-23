@@ -69,7 +69,7 @@ shellAliases = {
       check = "sudo nix flake check";
       nx = "cd /etc/nixos";
       man = "man home-configuration.nix";
-      maj = "nix flake update && rb";
+      maj = "sudo nix flake update && rb";
 
             
       };

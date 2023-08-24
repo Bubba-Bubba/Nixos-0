@@ -44,7 +44,7 @@ let
             home-manager.useUserPackages = true;
 
             home-manager.users.marcus.import = [
-              ./home.nix;  
+              ./home.nix  
               nixvimModule
             ]
 

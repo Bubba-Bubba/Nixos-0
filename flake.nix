@@ -20,40 +20,47 @@ helix.url = "github:helix-editor/helix/23.05";
   };
 
 outputs = { self, nixpkgs, home-manager, nixvim, ... }@inputs : 
-
 let
     nixvimModule = nixvim.homeManagerModules.nixvim;
   in
-
 {
-    
     nixosConfigurations = {
       My_Nix = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
                   specialArgs = inputs;
 
          modules = [
-          nixvimModule
           ./configuration.nix
-          
-          # make home-manager as a module of nixos
-          # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
-          home-manager.nixosModules.home-manager
+                    # make home-manager as a module of nixos
+          # so that home-manager configuration will be deployed 
+          #automatically when executing `nixos-rebuild switch`
+            home-manager.nixosModules.home-manager
+#          {
+ #           home-manager = {
+ #             useGlobalPkgs = true;
+ #             useUserPackages = true;
+ #             users.marcus.imports = [
+ #               ./home.nix
+ #               nixvimModule
+ #             ];
+ #           };
+ #         }
+#          ];
+                #  home-manager.nixosModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
+          home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-
-            home-manager.users.marcus.import = [
+            home-manager.users.marcus.imports = [
               ./home.nix  
               nixvimModule
-            ]
-
-            # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
+                    ];
           }
-        ];
 
+        ];
+       };
+        
       };
     };
-  };
+
 }
 

@@ -13,15 +13,19 @@ nixvim = {
     url = "github:nix-community/nixvim";
   #  # If you are not running an unstable channel of nixpkgs, select the corresponding branch of nixvim.
     # url = "github:nix-community/nixvim/nixos-23.05";
-
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
 helix.url = "github:helix-editor/helix/23.05"; 
   };
 
-outputs = { self, nixpkgs, home-manager, ... }@inputs : {
-    inputs.nixvim.homeManagerModules.nixvim
+outputs = { self, nixpkgs, home-manager, nixvim, ... }@inputs : 
+
+let
+    nixvimModule = nixvim.homeManagerModules.nixvim;
+  in
+
+{
     
     nixosConfigurations = {
       My_Nix = nixpkgs.lib.nixosSystem {
@@ -29,6 +33,7 @@ outputs = { self, nixpkgs, home-manager, ... }@inputs : {
                   specialArgs = inputs;
 
          modules = [
+          nixvimModule
           ./configuration.nix
           
           # make home-manager as a module of nixos
@@ -38,7 +43,10 @@ outputs = { self, nixpkgs, home-manager, ... }@inputs : {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
 
-            home-manager.users.marcus = import ./home.nix;
+            home-manager.users.marcus.import = [
+              ./home.nix;  
+              nixvimModule
+            ]
 
             # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
           }

@@ -1,12 +1,4 @@
 { config, pkgs, ... }:
-{
-
-imports = [
-# inputs.nixvim.homeManagerModules.nixvim
-nixvim.homeManagerModules.nixvim
-];
-
-
 
 
   home.username = "marcus";
@@ -25,7 +17,6 @@ nixvim.homeManagerModules.nixvim
   nix-output-monitor
   glow
   lsof
-
   
   mailspring
   nodejs_20

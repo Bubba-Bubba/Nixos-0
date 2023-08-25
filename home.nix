@@ -17,7 +17,6 @@
   nix-output-monitor
   glow
   lsof
-  
   mailspring
   nodejs_20
   go

@@ -16,18 +16,28 @@ nixvim = {
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
+nix-index-database = {
+      url = "github:Mic92/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  
+
 helix.url = "github:helix-editor/helix/23.05"; 
   };
 
-outputs = { self, nixpkgs, home-manager, nixvim, ... }@inputs : 
+outputs = { self, nixpkgs, home-manager, nixvim, nix-index-database, ... }@inputs : 
 let
-    nixvimModule = nixvim.homeManagerModules.nixvim;
+    system = "x86_64-linux";
+    homeManagerModules = [ 
+    nixvim.homeManagerModules.nixvim
+    nix-index-database.hmModules.nix-index
+     ];
   in
 {
     nixosConfigurations = {
       My_Nix = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-                  specialArgs = inputs;
+             inherit system;                  
+            specialArgs = inputs;
 
          modules = [
           ./configuration.nix
@@ -37,12 +47,14 @@ let
             home-manager.nixosModules.home-manager
                 #  home-manager.nixosModules.home-manager
           {
-          home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.marcus.imports = [
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.marcus.imports = [
               ./home.nix  
-              nixvimModule
-                    ];
+                    ]
+                   ++ homeManagerModules;
+          };
           }
 
         ];

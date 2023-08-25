@@ -126,7 +126,7 @@ services.x2goserver.enable = true;
 	git
 	brave
  	helix.packages."${pkgs.system}".helix
-
+  micro
 
  ];
 

@@ -132,7 +132,7 @@ services.x2goserver.enable = true;
 	brave
  	helix.packages."${pkgs.system}".helix
   micro
-
+linuxKernel.packages.linux_zen.tmon
  ];
 
  environment.variables.EDITOR = "vim";

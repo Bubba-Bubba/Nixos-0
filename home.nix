@@ -48,6 +48,7 @@ colorschemes.kanagawa.enable = true;
   nodejs_20
   go
   hugo
+  python311Packages.pip
   lsof
   which
   ];

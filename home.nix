@@ -40,6 +40,7 @@ colorschemes.kanagawa.enable = true;
   fzf
   dnsutils
   gawk
+  python39
   nix-output-monitor
   glow
   lsof
@@ -84,6 +85,7 @@ shellAliases = {
       hm = "cd /etc/nixos && sudo hx home.nix";
       rb = "sudo nixos-rebuild --flake .#My_Nix switch";
       c = "clear";
+      tc = "sensors";
       g0 = "sudo git init";
       g1 = "sudo git add .";
       g3 = "sudo git push -u origin main";

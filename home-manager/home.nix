@@ -76,14 +76,19 @@ programs.bash = {
 
 
 shellAliases = {
+      va = "source virt_env/bin/activate";
+      vd = "deactivate";
+      vc = "python3 -m venv virt_env";
+      
+      
       post= "cd ~/Websites/Sites/nixs.info/content/english/posts";
       webs = "cd ~/Websites/Sites/nixs.info && npm run dev";
       n = "sudo nvim";
       nv = "nvim";
       webd = "cd ~/Websites/Sites/nixs.info";
-      cf = "cd /etc/nixos && sudo hx configuration.nix";
+      cf = "cd /etc/nixos/nixos && sudo hx configuration.nix";
       fl = "cd /etc/nixos && sudo hx flake.nix";
-      hm = "cd /etc/nixos && sudo hx home.nix";
+      hm = "cd /etc/nixos/home-manager && sudo hx home.nix";
       rb = "sudo nixos-rebuild --flake .#My_Nix switch";
       c = "clear";
       tc = "sensors";

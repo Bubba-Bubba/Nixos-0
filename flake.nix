@@ -40,7 +40,7 @@ let
             specialArgs = inputs;
 
          modules = [
-          ./configuration.nix
+          ./nixos/configuration.nix
                     # make home-manager as a module of nixos
           # so that home-manager configuration will be deployed 
           #automatically when executing `nixos-rebuild switch`
@@ -51,7 +51,7 @@ let
             useGlobalPkgs = true;
             useUserPackages = true;
             users.marcus.imports = [
-              ./home.nix  
+              ./home-manager/home.nix  
                     ]
                    ++ homeManagerModules;
           };

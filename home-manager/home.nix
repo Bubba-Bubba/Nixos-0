@@ -14,6 +14,8 @@ colorschemes.kanagawa.enable = true;
       incsearch = true;
     };
 
+programs.helix.enable = true;
+
     # ...mappings...
     maps.normal = {
       "<C-s>" = ":w<CR>";

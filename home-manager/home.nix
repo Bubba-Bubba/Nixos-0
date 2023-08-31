@@ -79,10 +79,10 @@ shellAliases = {
       va = "source virt_env/bin/activate";
       vd = "deactivate";
       vc = "python3 -m venv virt_env";
-      
-      
-      post= "cd ~/Websites/Sites/nixs.info/content/english/posts";
-      webs = "cd ~/Websites/Sites/nixs.info && npm run dev";
+      hugo = "cd ~/Websites/Sites";
+      dhc = "cd ~/Websites/Sites/DHC";
+      nix_info = "cd ~/Websites/Sites/nixs.info && npm run dev";
+      posts = "cd ~/Websites/Sites/nixs.info/content/english/posts";
       n = "sudo nvim";
       nv = "nvim";
       webd = "cd ~/Websites/Sites/nixs.info";

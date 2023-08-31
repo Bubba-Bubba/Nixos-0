@@ -104,8 +104,10 @@ shellAliases = {
       nx = "cd /etc/nixos";
       man = "man home-configuration.nix";
       maj = "sudo nix flake update && rb";
-
-            
+      #shx ="sudo hx";
+      ga = "git init";
+      gb = "git add .";
+      gc = "git push -u origin master";    
       };
 
 };
